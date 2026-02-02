@@ -56,13 +56,13 @@ variable "Eth2SubnetId" {
 }
 
 variable "ImageSku" {
-	default = "keysight-breakingpoint-ve-virtual-blade-11-20"
+	default = "keysight-breakingpoint-ve-virtual-blade-26-0-0"
 	description = "An instance of an offer, such as a major release of a distribution."
 	type = string
 }
 
 variable "ImageVersion" {
-	default = "11.20.18"
+	default = "26.0.1"
 	description = "The version number of an image SKU."
 	type = string
 }
@@ -101,6 +101,12 @@ variable "SshKeyName" {
 	type = string
 }
 
+variable "SleepDelay" {
+	default = "1m"
+	description = "Time duration to delay to allow application to perform internal initialization required before use"
+	type = string
+}
+
 variable "Tag" {
 	default = "bps"
 	description = "App ID tag of application using the deployment"
@@ -134,7 +140,7 @@ variable "UserProjectTag" {
 }
 
 variable "Version" {
-	default = "11-20"
+	default = "26.0.0"
 	description = "Versioning of the application using the deployment"
 	type = string
 }
@@ -143,6 +149,13 @@ variable "VmSize" {
 	default = "Standard_E8_v5"
 	description = "Category, series and instance specifications associated with the VM"
 	type = string
+	validation {
+		condition = contains([ "Standard_E8_v5", "Standard_E16_v5" ], var.VmSize)
+		error_message = <<EOF
+VmSize must be one of the following sizes:
+	Standard_E8_v5, Standard_E16_v5
+		EOF
+	}
 }
 
 variable "init_cli" {
