@@ -150,10 +150,10 @@ variable "VmSize" {
 	description = "Category, series and instance specifications associated with the VM"
 	type = string
 	validation {
-		condition = contains([ "Standard_E8_v5", "Standard_E16_v5" ], var.VmSize)
+		condition = contains([ "Standard_E8_v5", "Standard_E16_v5", "Standard_E32_v5", "Standard_E48_v5" ], var.VmSize)
 		error_message = <<EOF
 VmSize must be one of the following sizes:
-	Standard_E8_v5, Standard_E16_v5
+	Standard_E8_v5, Standard_E16_v5, Standard_E32_v5, Standard_E48_v5
 		EOF
 	}
 }
