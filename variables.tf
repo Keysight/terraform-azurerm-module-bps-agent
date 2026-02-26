@@ -145,6 +145,12 @@ variable "Version" {
 	type = string
 }
 
+variable "VmSize" {
+	default = "Standard_E8_v5"
+	description = "Category, series and instance specifications associated with the VM"
+	type = string
+}
+
 variable "init_cli" {
 	default = <<-EOF
 #!/bin/bash -xe
