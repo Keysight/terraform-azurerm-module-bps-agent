@@ -56,13 +56,13 @@ variable "Eth2SubnetId" {
 }
 
 variable "ImageSku" {
-	default = "keysight-breakingpoint-ve-virtual-blade-26-0-0"
+	default = "keysight-breakingpoint-ve-virtual-blade-26-1-0"
 	description = "An instance of an offer, such as a major release of a distribution."
 	type = string
 }
 
 variable "ImageVersion" {
-	default = "26.0.1"
+	default = "26.1.1"
 	description = "The version number of an image SKU."
 	type = string
 }
@@ -140,7 +140,7 @@ variable "UserProjectTag" {
 }
 
 variable "Version" {
-	default = "26.0.0"
+	default = "26.1.0"
 	description = "Versioning of the application using the deployment"
 	type = string
 }
